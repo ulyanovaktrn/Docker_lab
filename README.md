@@ -23,7 +23,7 @@ COPY go.mod go.sum /modules/
 WORKDIR /modules
 RUN go mod download && go clean -modcache
 ```  
-Здесь происходит управление модулями go, благодаря этому ускоряются последующие сборки.  
+   Здесь происходит управление модулями go, благодаря этому ускоряются последующие сборки.  
    2 этап:  
 ```
 FROM golang:alpine as builder
@@ -34,7 +34,7 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
     go build -tags migrate -o /bin/app ./cmd/app \
     && go clean -cache -testcache -modcache -i -r
 ```
-Здесь собирается приложение.  
+   Здесь собирается приложение.  
    3 этап:
 ```
 FROM scratch
@@ -44,8 +44,8 @@ COPY --from=builder /bin/app /app
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 CMD ["/app"]
 ```
-Здесь запускается приложение.  
-5. Конфигурация проекта содержится в файле docker-compose.yaml.
+   Здесь запускается приложение.  
+5. Конфигурация проекта содержится в файле docker-compose.yaml.  
 6. Переменные окружения, через которые осуществляется конфигурация, находятся в файле .env.   
 
 ## Запуск:
