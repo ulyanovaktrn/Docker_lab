@@ -15,9 +15,35 @@
 ## Выполнение:
 1. За основу взято приложение, в котором пользователи могут регистрироваться, проходить аутентификацию и управлять своим балансом (пополнять счёт, резервировать и возвращать средства, выводить историю операций и тд). Приложение написано на golang и использует PostgreSQL в качестве хранилища данных.  
 2. Для миграций БД используется golang-migrate/migrate. В директории migrations находятся файлы миграций.
-3. Dockerfile содержит инструкции для сборки образа. Здесь представлена multi-stage сборка
-4. Конфигурация проекта содержится в файле docker-compose.yaml.
-5. Переменные окружения, через которые осуществляется конфигурация, находятся в файле .env.   
+3. Dockerfile содержит инструкции для сборки образа. Здесь представлена multi-stage сборка:
+   1 этап:  
+   ```
+FROM golang:alpine as modules
+COPY go.mod go.sum /modules/
+WORKDIR /modules
+RUN go mod download && go clean -modcache
+   ```
+   2 этап:  
+   ```
+FROM golang:alpine as builder
+COPY --from=modules /go/pkg /go/pkg
+COPY . /app
+WORKDIR /app
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
+    go build -tags migrate -o /bin/app ./cmd/app \
+    && go clean -cache -testcache -modcache -i -r
+   ```
+   3 этап:
+   ```
+FROM scratch
+COPY --from=builder /app/config /config
+COPY --from=builder /app/migrations /migrations
+COPY --from=builder /bin/app /app
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+CMD ["/app"]
+   ```
+5. Конфигурация проекта содержится в файле docker-compose.yaml.
+6. Переменные окружения, через которые осуществляется конфигурация, находятся в файле .env.   
 
 ## Запуск:
 Создание контейнеров и их запуск в фоновом режиме:  
