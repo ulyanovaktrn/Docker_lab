@@ -24,15 +24,25 @@
 ```
 docker-compose up --build -d
 ```
+Ниже на скриншоте показано создание контейнеров и работа с приложением (регистрация двух пользователей (обе со второй попытки) и авторизация одного пользователя):  
+![alt-текст][logo]
+
+[logo]: https://github.com/ulyanovaktrn/Docker_lab/blob/main/screenshots/app_docker.png  
 Просмотр запущенных в данный момент контейнеров:
 ```
 docker ps
 ```
 Флаг -a добавит к выводу информацию о тех контейнерах, которые были остановлены, завершены или не были запущены успешно (было полезно для отладки).  
+![alt-текст][logo]
+
+[logo]: https://github.com/ulyanovaktrn/Docker_lab/blob/main/screenshots/ps-a.png  
 Просмотр логов, сгенерированных конкретным контейнером:  
 ```
 docker logs <container_name_or_id>
 ```
+![alt-текст][logo]
+
+[logo]: https://github.com/ulyanovaktrn/Docker_lab/blob/main/screenshots/logs.png  
 Отображение списка локально сохранённых образов:
 ```
 docker images
