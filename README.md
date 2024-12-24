@@ -33,21 +33,21 @@ docker-compose up --build -d
 docker ps
 ```
 Флаг -a добавит к выводу информацию о тех контейнерах, которые были остановлены, завершены или не были запущены успешно (было полезно для отладки).  
-![alt-текст][logo]
+![alt-текст][logo1]
 
-[logo]: https://github.com/ulyanovaktrn/Docker_lab/blob/main/screenshots/ps-a.png  
+[logo1]: https://github.com/ulyanovaktrn/Docker_lab/blob/main/screenshots/ps-a.png  
 Просмотр логов, сгенерированных конкретным контейнером:  
 ```
 docker logs <container_name_or_id>
 ```
-![alt-текст][logo]
+![alt-текст][logo2]
 
-[logo]: https://github.com/ulyanovaktrn/Docker_lab/blob/main/screenshots/logs.png  
+[logo2]: https://github.com/ulyanovaktrn/Docker_lab/blob/main/screenshots/logs.png  
 Отображение списка локально сохранённых образов:
 ```
 docker images
 ```
 С помощью этой команды можно узнать размер нашего образа (40.3MB).  
-![alt-текст][logo]
+![alt-текст][logo3]
 
-[logo]: https://github.com/ulyanovaktrn/Docker_lab/blob/main/screenshots/image_size.png
+[logo3]: https://github.com/ulyanovaktrn/Docker_lab/blob/main/screenshots/image_size.png
