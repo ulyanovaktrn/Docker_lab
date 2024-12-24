@@ -51,3 +51,24 @@ docker images
 ![alt-текст][logo3]
 
 [logo3]: https://github.com/ulyanovaktrn/Docker_lab/blob/main/screenshots/image_size.png
+Остановка контейнеров:
+```
+docker-compose stop
+```
+![alt-текст][logo4]
+
+[logo4]: https://github.com/ulyanovaktrn/Docker_lab/blob/main/screenshots/stop.png    
+Запуск контейнеров:
+```
+docker-compose start
+```
+![alt-текст][logo5]
+
+[logo5]: https://github.com/ulyanovaktrn/Docker_lab/blob/main/screenshots/start.png  
+Завершение работы всех контейнеров с удалением всех ресурсов, связанных с ними:
+```
+docker-compose down -v
+```
+![alt-текст][logo6]
+
+[logo6]: https://github.com/ulyanovaktrn/Docker_lab/blob/main/screenshots/down.png  
