@@ -94,8 +94,6 @@ docker-compose start
 ![alt-текст][logo5]
 
 [logo5]: https://github.com/ulyanovaktrn/Docker_lab/blob/main/screenshots/start.png  
-![1](https://github.com/user-attachments/assets/58164407-6cce-48cb-b5a6-4d6d7e3214fc)
-)
 Завершение работы всех контейнеров с удалением всех ресурсов, связанных с ними:
 ```
 docker-compose down -v
