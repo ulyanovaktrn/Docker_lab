@@ -92,6 +92,9 @@ docker-compose stop
 docker-compose start
 ```
 ![alt-текст][logo5]
+![alt-text][image]
+[image]: ![image](https://github.com/user-attachments/assets/1f4d81c4-877a-46a2-b5ad-8e17c9ec40fd)
+
 
 [logo5]: https://github.com/ulyanovaktrn/Docker_lab/blob/main/screenshots/start.png  
 Завершение работы всех контейнеров с удалением всех ресурсов, связанных с ними:
